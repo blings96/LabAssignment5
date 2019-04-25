@@ -1,4 +1,16 @@
 import { Component, OnInit } from '@angular/core';
+import { Action } from 'rxjs/internal/scheduler/Action';
+import { Placeholder } from '@angular/compiler/src/i18n/i18n_ast';
+interface IMovie {
+  id: number;
+  ratingNumber: number;
+  movieName: string;
+  genreName: string;
+  year: string;
+  description: string;
+  editMode?: boolean;
+  poster?: File;
+}
 
 @Component({
   selector: 'app-home',
@@ -7,21 +19,24 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-  condX = false;
-  condY = false;
+  movieArray: Array<IMovie> = [];
 
-  r2CondX = false;
-  r2CondY = true;
-
-  r3CondX = true;
-  r3CondY = false;
-
-  r4CondX = true;
-  r4CondY = true;
 
   constructor() { }
 
   ngOnInit() {
+    this.movieArray = [
+      {
+        id: 1,
+        ratingNumber: 7.6,
+        movieName: 'Shazam!',
+        genreName: 'Action',
+        year: '2019',
+        description: '- SHAZAM. - this streetwise fourteen-year-old foster kid can turn into the grown-up superhero Shazam',
+        editMode: false,
+       // poster: 'shazam.jpg'
+      }
+    ];
   }
 
 }
